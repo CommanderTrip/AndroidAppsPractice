@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dateDetailsFragment"
+            type="com.commandertrip.cupcakemock.fragments.DateDetailsFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.commandertrip.cupcakemock.models.TravelViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_primary"
+        android:theme="@style/Theme.CupcakeMock"
+        tools:context=".fragments.DateDetailsFragment">
+
+
+        <!-- Round Trip and One Way buttons should alternate colors based on the selected one -->
+        <RadioGroup
+            android:id="@+id/trip_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/std_margin"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/round_trip_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.flightType.equals(@string/round_trip)}"
+                android:minWidth="@dimen/trip_type_width"
+                android:onClick="@{() -> viewModel.setFlightType(true)}"
+                android:text="@string/round_trip"
+                android:textColor="@color/white" />
+
+            <RadioButton
+                android:id="@+id/one_way_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.flightType.equals(@string/one_way)}"
+                android:minWidth="@dimen/trip_type_width"
+                android:onClick="@{() -> viewModel.setFlightType(false)}"
+                android:text="@string/one_way"
+                android:textColor="@color/white" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/departure_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/std_margin"
+            android:layout_marginTop="@dimen/std_margin"
+            android:gravity="center|end"
+            android:minWidth="@dimen/date_width"
+            android:minHeight="@dimen/date_height"
+            android:text="@string/departure_date"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/trip_type" />
+
+        <EditText
+            android:id="@+id/departure_date_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/std_margin"
+            android:height="@dimen/date_height"
+            android:ems="10"
+            android:hint="@string/departure_date_here"
+            android:inputType="date"
+            android:minHeight="@dimen/date_height"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/departure_date"
+            app:layout_constraintTop_toTopOf="@+id/departure_date" />
+
+        <TextView
+            android:id="@+id/return_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_margin"
+            android:gravity="center|end"
+            android:minWidth="@dimen/date_width"
+            android:minHeight="@dimen/date_height"
+
+            android:text="@string/return_date"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/departure_date"
+            app:layout_constraintTop_toBottomOf="@id/departure_date" />
+
+        <EditText
+            android:id="@+id/return_date_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/std_margin"
+            android:height="@dimen/date_height"
+            android:ems="10"
+            android:hint="@string/return_date_here"
+            android:inputType="date"
+            android:minHeight="@dimen/date_height"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/return_date"
+            app:layout_constraintTop_toTopOf="@+id/return_date" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:layout_marginHorizontal="@dimen/std_margin"
+            android:layout_marginTop="@dimen/std_margin"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/return_date" />
+
+        <Button
+            android:id="@+id/see_flights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/std_margin"
+            android:layout_marginTop="@dimen/std_margin"
+            android:onClick="@{() -> dateDetailsFragment.goToFlightDetails()}"
+            android:text="@string/see_flights"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <Button
+            android:id="@+id/cancel_button"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/std_margin"
+            android:layout_marginTop="@dimen/std_margin"
+            android:onClick="@{() -> dateDetailsFragment.cancelPlan()}"
+            android:text="@string/cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/see_flights" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

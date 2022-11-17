@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.commandertrip.cupcakemock.models.TravelViewModel" />
+
+        <variable
+            name="homeFragment"
+            type="com.commandertrip.cupcakemock.fragments.HomeFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_primary"
+        android:orientation="vertical"
+        android:theme="@style/Theme.CupcakeMock"
+        tools:context=".fragments.HomeFragment">
+
+
+        <TextView
+            android:id="@+id/from_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/std_padding"
+            android:text="@{@string/from_location_home(viewModel.departureLocation)}"
+            android:textColor="@color/white"
+            app:drawableRightCompat="@drawable/ic_location"
+            app:drawableTint="@color/mock_orange" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/home_image_size"
+            android:layout_height="@dimen/home_image_size"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/home_icon_description"
+            android:src="@drawable/ic_airplane_ticket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/home_title"
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            android:textColor="@color/white" />
+
+        <!-- New York -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/mock_dark_green"
+            android:minWidth="@dimen/home_button_width"
+            android:onClick="@{() -> homeFragment.startPlan(@string/new_york)}"
+            android:text="@{@string/location_template(@string/new_york, @string/new_york_ic)}" />
+
+        <!-- Nashville -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/mock_dark_green"
+            android:minWidth="@dimen/home_button_width"
+            android:onClick="@{() -> homeFragment.startPlan(@string/nashville)}"
+            android:text="@{@string/location_template(@string/nashville, @string/nashville_ic)}" />
+
+        <!-- Seattle -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/mock_dark_green"
+            android:minWidth="@dimen/home_button_width"
+            android:onClick="@{() -> homeFragment.startPlan(@string/seattle)}"
+            android:text="@{@string/location_template(@string/seattle, @string/seattle_ic)}" />
+
+        <!-- Orlando -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/mock_dark_green"
+            android:minWidth="@dimen/home_button_width"
+            android:onClick="@{() -> homeFragment.startPlan(@string/nashville)}"
+            android:text="@{@string/location_template(@string/orlando, @string/orlando_ic)}" />
+
+        <!-- Denver -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/mock_dark_green"
+            android:minWidth="@dimen/home_button_width"
+            android:onClick="@{() -> homeFragment.startPlan(@string/denver)}"
+            android:text="@{@string/location_template(@string/denver, @string/denver_ic)}" />
+
+    </LinearLayout>
+</layout>

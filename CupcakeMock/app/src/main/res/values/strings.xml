@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Cupcake Mock</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="from_location_home">From: %s</string>
+    <string name="home_icon_description">Home Travel Icon</string>
+    <string name="home_title">Travel Planner</string>
+    <string name="location_template">%s %s</string>
+    <string name="nashville">Nashville, TN</string>
+    <string name="nashville_ic">🤠</string>
+    <string name="new_york">New York City, NY</string>
+    <string name="new_york_ic">🌃</string>
+    <string name="seattle">Seattle, WA</string>
+    <string name="seattle_ic">☔</string>
+    <string name="orlando">Orlando, FL</string>
+    <string name="orlando_ic">🌅</string>
+    <string name="denver">Denver, CO</string>
+    <string name="denver_ic">🏔</string>
+    <string name="round_trip">Round Trip</string>
+    <string name="one_way">One Way</string>
+    <string name="departure_date">Departure Date:</string>
+    <string name="departure_date_here">Departure Date Here</string>
+    <string name="return_date">Return Date:</string>
+    <string name="return_date_here">Return Date Here</string>
+    <string name="see_flights">See Flights</string>
+    <string name="cancel">Cancel</string>
+    <string name="see_summary">See Summary</string>
+    <string name="to_destination">To: %s</string>
+    <string name="flight_type_s">Flight Type: %s</string>
+    <string name="departure_date_summary">Departure date: %s</string>
+    <string name="return_date_summary">Return date: %s</string>
+    <string name="price_summary">Price: %s</string>
+    <string name="coming_soon">Coming Soon!</string>
+    <string name="send_flight_details">Send Flight Details</string>
+    <string name="delta_air_lines">Delta Air Lines ($$$)</string>
+    <string name="united_airlines">United Airlines ($$)</string>
+    <string name="spirit_airlines">Spirit Airlines ($)</string>
+    <string name="flight_plan">Flight Plan:</string>
+    <string name="flight_details">From: %1$s\nTo: %2$s\nLeaving: %3$s\nReturning: %4$s\nThrough: %5$s</string>
+</resources>

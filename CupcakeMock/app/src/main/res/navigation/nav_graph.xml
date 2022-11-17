@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.commandertrip.cupcakemock.fragments.HomeFragment"
+        android:label="Travel Planner Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_dateDetailsFragment"
+            app:destination="@id/dateDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dateDetailsFragment"
+        android:name="com.commandertrip.cupcakemock.fragments.DateDetailsFragment"
+        android:label="Travel Date Details"
+        tools:layout="@layout/fragment_date_details" >
+        <action
+            android:id="@+id/action_dateDetailsFragment_to_flightDetailsFragment"
+            app:destination="@id/flightDetailsFragment" />
+        <action
+            android:id="@+id/action_dateDetailsFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flightDetailsFragment"
+        android:name="com.commandertrip.cupcakemock.fragments.FlightDetailsFragment"
+        android:label="Travel Flight Details"
+        tools:layout="@layout/fragment_flight_details" >
+        <action
+            android:id="@+id/action_flightDetailsFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+        <action
+            android:id="@+id/action_flightDetailsFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"
+
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.commandertrip.cupcakemock.fragments.SummaryFragment"
+        android:label="Travel Summary"
+        tools:layout="@layout/fragment_summary" >
+        <action
+            android:id="@+id/action_summaryFragment_to_homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
